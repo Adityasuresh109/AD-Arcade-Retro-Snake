@@ -1,97 +1,31 @@
-/* Base Styles */
-body {
-  margin: 0;
-  font-family: 'Press Start 2P', monospace;
-  background: black;
-  color: white;
-  overflow: hidden;
-  text-align: center;
-}
-.no-select {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  outline: none;
-}
-.panel {
-  position: absolute;
-  top: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.9);
-  padding: 20px;
-  border: 2px solid var(--glow);
-  border-radius: 10px;
-  box-shadow: 0 0 12px var(--glow);
-  max-width: 300px;
-  z-index: 5;
-}
-.panel.hidden {
-  display: none !important;
-}
-.panel h1, .panel h2 {
-  margin: 0 0 12px;
-  color: var(--glow);
-  text-shadow: 0 0 8px var(--glow);
-}
-.panel label {
-  display: block;
-  margin: 8px 0 4px;
-  font-size: 12px;
-}
-.panel input, .panel select, .panel button {
-  margin: 6px auto;
-  display: block;
-  width: 100%;
-  max-width: 260px;
-  background: #111;
-  color: var(--glow);
-  border: 2px solid var(--glow);
-  border-radius: 6px;
-  padding: 6px;
-  font-size: 12px;
-  box-shadow: 0 0 6px var(--glow);
-}
-.panel button {
-  cursor: pointer;
-}
+/* Base */
+body {margin:0;font-family:'Press Start 2P',monospace;background:#000;color:#fff;overflow:hidden;text-align:center;}
+.no-select {user-select:none;-webkit-user-select:none;-moz-user-select:none;outline:none;}
+.panel {position:absolute;top:15%;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.9);
+  padding:16px;border:2px solid var(--glow);border-radius:8px;box-shadow:0 0 12px var(--glow);
+  max-width:280px;transition:opacity .5s ease;}
+.panel.hidden {opacity:0;pointer-events:none;}
+.panel h1,h2 {margin:0 0 8px;color:var(--glow);text-shadow:0 0 6px var(--glow);font-size:18px;}
+.panel label{display:block;margin:6px 0;font-size:12px;text-align:left;}
+.panel input, .panel button {margin:6px auto;width:100%;max-width:240px;background:#111;color:var(--glow);
+  border:2px solid var(--glow);border-radius:4px;padding:6px;font-size:12px;box-shadow:0 0 6px var(--glow);}
+.panel button{cursor:pointer;}
 
 /* Game UI */
-#gameTitle {
-  font-size: 18px;
-  margin-top: 20px;
-  text-shadow: 0 0 6px white;
-}
-#scoreboard {
-  font-size: 14px;
-  margin: 12px 0;
-  text-shadow: 0 0 5px white;
-}
+#gameTitle{font-size:16px;margin-top:20px;text-shadow:0 0 6px #fff;}
+#scoreboard{font-size:14px;margin:10px 0;text-shadow:0 0 5px #fff;}
+#gameCanvas{width:90vw;height:90vw;max-width:600px;max-height:600px;border:3px solid var(--glow);
+  box-shadow:0 0 16px var(--glow);margin: auto;display:block;}
 
-/* Canvas */
-#gameCanvas {
-  border: 3px solid var(--glow);
-  box-shadow: 0 0 16px var(--glow);
-  background: black;
-  margin-top: 10px;
-}
+/* Themes (DX Ball colors) */
+body.classic {--snake-color:#0ff;--food-color:#3498db;--grid-color:#022;--glow:#0ff;}
 
-/* Themes */
-body.classic {
-  --snake-color: #00f;   /* Blue snake */
-  --food-color: #f00;    /* Red food */
-  --grid-color: #222;
-  --glow: #00f;          /* Blue glow */
-}
-body.neon {
-  --snake-color: #0ff;
-  --food-color: #f0f;
-  --grid-color: #111;
-  --glow: #f0f;
-}
-body.matrix {
-  --snake-color: #0f0;
-  --food-color: #0ff;
-  --grid-color: #011;
-  --glow: #0f0;
-}
+/* Instructions and Leaderboard lists */
+.instructions-list, #leaderboardList {list-style:none;padding:0;text-align:left;font-size:10px;}
+.instructions-list li,#leaderboardList li{margin:6px 0;}
+
+/* Modal */
+#gameOverModal {top:30%;}
+
+/* Responsive */
+@media(max-width:400px){#gameCanvas{width:95vw;height:95vw;}}
