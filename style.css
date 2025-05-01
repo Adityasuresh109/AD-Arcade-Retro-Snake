@@ -15,33 +15,39 @@ body {
 }
 .panel {
   position: absolute;
-  top: 10%;
+  top: 8%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   padding: 20px;
   border: 2px solid var(--glow);
-  border-radius: 8px;
-  box-shadow: 0 0 10px var(--glow);
-  max-width: 280px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px var(--glow);
+  max-width: 300px;
+  z-index: 5;
 }
 .panel.hidden {
   display: none !important;
 }
 .panel h1, .panel h2 {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--glow);
-  text-shadow: 0 0 6px var(--glow);
+  text-shadow: 0 0 8px var(--glow);
+}
+.panel label {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 12px;
 }
 .panel input, .panel select, .panel button {
-  margin: 8px auto;
+  margin: 6px auto;
   display: block;
   width: 100%;
-  max-width: 240px;
+  max-width: 260px;
   background: #111;
   color: var(--glow);
   border: 2px solid var(--glow);
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 6px;
   font-size: 12px;
   box-shadow: 0 0 6px var(--glow);
@@ -49,46 +55,38 @@ body {
 .panel button {
   cursor: pointer;
 }
-.instructions-list, #leaderboardList {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-  font-size: 10px;
-}
-.instructions-list li, #leaderboardList li {
-  margin: 6px 0;
-}
+
+/* Game UI */
 #gameTitle {
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 20px;
+  text-shadow: 0 0 6px white;
 }
 #scoreboard {
   font-size: 14px;
-  margin: 10px 0;
+  margin: 12px 0;
+  text-shadow: 0 0 5px white;
 }
+
+/* Canvas */
 #gameCanvas {
-  border: 2px solid white;
-  box-shadow: 0 0 10px var(--glow);
-  margin-top: 10px;
+  border: 3px solid var(--glow);
+  box-shadow: 0 0 16px var(--glow);
   background: black;
+  margin-top: 10px;
 }
-#gameOverModal {
-  top: 20%;
-}
-#gameOverModal.visible {
-  display: block;
-}
+
 /* Themes */
 body.classic {
-  --snake-color: #0f0;
-  --food-color: #f00;
-  --grid-color: #333;
-  --glow: #0f0;
+  --snake-color: #00f;   /* Blue snake */
+  --food-color: #f00;    /* Red food */
+  --grid-color: #222;
+  --glow: #00f;          /* Blue glow */
 }
 body.neon {
   --snake-color: #0ff;
   --food-color: #f0f;
-  --grid-color: #222;
+  --grid-color: #111;
   --glow: #f0f;
 }
 body.matrix {
