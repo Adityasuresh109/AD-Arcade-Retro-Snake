@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AD Snake: Retro Slither</title>
+  <title>AD Arcade: Retro Snake</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -11,16 +11,18 @@
 <body class="classic">
   <!-- Login Panel -->
   <div id="loginScreen" class="panel">
-    <h1><strong>AD Snake: Retro Slither</strong></h1>
+    <h1><strong>AD Arcade: Retro Snake</strong></h1>
     <label for="playerName">👤 Name:</label>
     <input type="text" id="playerName" placeholder="Enter your name" required />
     <label for="themeSelect">🎨 Theme:</label>
     <select id="themeSelect">
-      <option value="classic" selected>🟩 Classic</option>
+      <option value="classic" selected>🔵 Classic Blue</option>
       <option value="neon">🌟 Neon</option>
       <option value="matrix">🟢 Matrix</option>
     </select>
-    <label><input type="checkbox" id="musicToggle" checked /> 🎶 Music</label>
+    <label>
+      <input type="checkbox" id="musicToggle" checked /> 🎶 Music
+    </label>
     <button id="startGameBtn" class="no-select">▶️ Start Game</button>
     <button id="viewInstructionsBtn" class="no-select">📖 Instructions</button>
     <button id="viewLeaderboardBtn" class="no-select">🏆 Leaderboard</button>
@@ -30,9 +32,10 @@
   <div id="instructionsPanel" class="panel hidden">
     <h2>📖 Instructions</h2>
     <ul class="instructions-list">
-      <li><strong>🎮 Controls:</strong> Arrow keys (←↑→↓) or swipe/touch on mobile.</li>
-      <li><strong>🍎 Food:</strong> Eat to grow. Avoid walls & self-collision.</li>
-      <li><strong>🎮 Theme:</strong> Change colors via dropdown before start.</li>
+      <li><strong>🎮 Controls:</strong> Arrow keys or swipe on mobile.</li>
+      <li><strong>🍎 Food:</strong> Eat to grow. Avoid walls & yourself.</li>
+      <li><strong>🟩 Snake:</strong> Represented by icons (🐍 head, 🟦 body).</li>
+      <li><strong>🎨 Theme:</strong> Choose color scheme before play.</li>
       <li><strong>🎶 Music:</strong> Toggle background music.</li>
     </ul>
     <button id="closeInstructionsBtn" class="no-select">❌ Close</button>
@@ -46,11 +49,13 @@
   </div>
 
   <!-- Game UI -->
-  <h2 id="gameTitle" class="hidden">AD Snake: Retro Slither</h2>
+  <h2 id="gameTitle" class="hidden">AD Arcade: Retro Snake</h2>
   <div id="scoreboard" class="hidden">
-    Score: <span id="score">0</span> | High Score: <span id="highscore">0</span>
+    Score: <span id="score">0</span> |
+    High Score: <span id="highscore">0</span>
   </div>
-  <canvas id="gameCanvas" width="400" height="400" class="hidden"></canvas>
+  <!-- Enlarged playing area -->
+  <canvas id="gameCanvas" width="600" height="600" class="hidden"></canvas>
 
   <!-- Game Over Modal -->
   <div id="gameOverModal" class="panel hidden">
@@ -59,7 +64,7 @@
     <button onclick="location.reload()" class="no-select">🔁 Restart</button>
   </div>
 
-  <!-- Music -->
+  <!-- Background Music -->
   <audio id="bgMusic" loop preload="auto">
     <source src="background.mp3" type="audio/mp3"/>
   </audio>
