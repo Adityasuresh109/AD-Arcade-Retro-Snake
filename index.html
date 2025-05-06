@@ -2,56 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AD Arcade: Retro Snake</title>
   <link rel="stylesheet" href="style.css" />
-  <style>@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');</style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  </style>
 </head>
-<body class="classic">
-  <!-- Login Panel -->
+<body class="galaxy">
+
+  <!-- 🎮 Landing Panel -->
   <div id="loginScreen" class="panel">
     <h1><strong>AD Arcade: Retro Snake</strong></h1>
     <label for="playerName">👤 Name:</label>
-    <input type="text" id="playerName" placeholder="Enter your name" required />
-    <label for="musicToggle"><input type="checkbox" id="musicToggle" checked /> 🎶 Music</label>
+    <input type="text" id="playerName" placeholder="Enter your name" />
+
+    <label for="themeSelect">🎨 Theme:</label>
+    <select id="themeSelect">
+      <option value="galaxy">🌌 Galaxy</option>
+      <option value="neon">🌟 Neon Grid</option>
+      <option value="ice">❄️ Ice Realm</option>
+      <option value="inferno">🔥 Inferno</option>
+    </select>
+
+    <label>
+      <input type="checkbox" id="musicToggle" checked /> 🎶 Music
+    </label>
+
     <button id="startGameBtn" class="no-select">▶️ Start Game</button>
     <button id="viewInstructionsBtn" class="no-select">📖 Instructions</button>
     <button id="viewLeaderboardBtn" class="no-select">🏆 Leaderboard</button>
   </div>
 
-  <!-- Instructions Panel -->
+  <!-- 📖 Instructions Panel -->
   <div id="instructionsPanel" class="panel hidden">
     <h2>📖 Instructions</h2>
     <ul class="instructions-list">
-      <li><strong>🎮 Controls:</strong> Arrow keys or swipe on mobile.</li>
-      <li><strong>🍎 Food:</strong> Eat to grow. Avoid walls & yourself.</li>
-      <li><strong>🐍 Snake:</strong> Head & body icons move smoothly.</li>
-      <li><strong>🎶 Music:</strong> Toggle background music.</li>
+      <li><strong>Controls:</strong> Arrow keys or swipe on mobile</li>
+      <li><strong>Food:</strong> Eat 🍎 to grow!</li>
+      <li><strong>Snake:</strong> 🐍 head + glowing circles body</li>
+      <li><strong>Theme:</strong> DX-Ball colors</li>
+      <li><strong>Music:</strong> Toggle before play</li>
     </ul>
     <button id="closeInstructionsBtn" class="no-select">❌ Close</button>
   </div>
 
-  <!-- Leaderboard Panel -->
+  <!-- 🏆 Leaderboard Panel -->
   <div id="leaderboardPanel" class="panel hidden">
     <h2>🏆 Top 10 Scores</h2>
     <ul id="leaderboardList"></ul>
     <button id="closeLeaderboardBtn" class="no-select">❌ Close</button>
   </div>
 
-  <!-- Game UI -->
+  <!-- 🎮 Game UI -->
   <h2 id="gameTitle" class="hidden">AD Arcade: Retro Snake</h2>
-  <div id="scoreboard" class="hidden">Score: <span id="score">0</span> | High Score: <span id="highscore">0</span></div>
+  <div id="scoreboard" class="hidden">
+    Score: <span id="score">0</span> |
+    High Score: <span id="highscore">0</span>
+  </div>
+
+  <!-- 🕹 Playing Area -->
   <canvas id="gameCanvas" class="hidden"></canvas>
 
-  <!-- Game Over Modal -->
+  <!-- 💀 Game Over Modal -->
   <div id="gameOverModal" class="panel hidden">
     <h2>💀 Game Over</h2>
     <p>Your Score: <span id="finalScore">0</span></p>
     <button onclick="location.reload()" class="no-select">🔁 Restart</button>
   </div>
 
-  <!-- Music -->
+  <!-- 🎶 Music -->
   <audio id="bgMusic" loop preload="auto">
-    <source src="background.mp3" type="audio/mp3"/>
+    <source src="background.mp3" type="audio/mp3" />
   </audio>
 
   <script src="script.js"></script>
