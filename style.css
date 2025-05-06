@@ -1,52 +1,53 @@
-/* Base & Responsiveness */
+/* ===== BASE & LOCK SCROLL ===== */
 body {
   margin: 0;
   font-family: 'Press Start 2P', monospace;
   background: black;
   color: white;
-  overflow: hidden; /* lock scroll */
+  overflow: hidden;
   text-align: center;
 }
-.no-select {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-}
+.no-select { user-select: none; -webkit-user-select: none; }
 
-/* Panels (Login, Instructions, Leaderboard, Game Over) */
+/* ===== PANEL STYLING ===== */
 .panel {
   position: absolute;
-  top: 10%;
+  top: 8%;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0,0,0,0.9);
   padding: 20px;
-  width: 80%;
-  max-width: 300px;
+  width: 85%;
+  max-width: 320px;
   border: 3px solid var(--glow);
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 0 12px var(--glow);
   opacity: 1;
   transition: opacity 0.4s ease;
+  pointer-events: auto;
 }
 .panel.hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-/* Panel Elements */
+/* Panel Headers */
 .panel h1, .panel h2 {
   margin: 0 0 12px;
   color: var(--glow);
   text-shadow: 0 0 8px var(--glow);
 }
+
+/* Inputs & Buttons */
 .panel label {
   display: block;
   margin: 8px 0 4px;
-  text-align: left;
   font-size: 12px;
+  text-align: left;
 }
-.panel input, .panel select, .panel button {
+.panel input,
+.panel select,
+.panel button {
   margin: 6px auto;
   display: block;
   width: 100%;
@@ -61,36 +62,33 @@ body {
 }
 .panel button { cursor: pointer; }
 
-/* Game UI Titles */
-#gameTitle {
-  font-size: 18px;
-  margin-top: 20px;
-  text-shadow: 0 0 6px white;
-}
+/* ===== SCOREBOARD ===== */
 #scoreboard {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 10;
   font-size: 14px;
-  margin: 12px 0;
-  text-shadow: 0 0 5px white;
+  text-shadow: 0 0 4px white;
+  color: white;
+  display: none;
 }
+#scoreboard.visible { display: block; }
 
-/* Canvas Playing Area */
+/* ===== CANVAS PLAY AREA ===== */
 #gameCanvas {
   background: black;
   border: 3px solid var(--glow);
   box-shadow: 0 0 16px var(--glow);
-  /* responsive square: 100vmin (min of width/height) */
-  width: 100vmin;
-  height: 100vmin;
-  max-width: 600px;
-  max-height: 600px;
-  margin-top: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
-/* Game Over Modal */
-#gameOverModal { top: 20%; }
-
-/* DX-Ball Themes */
-body.galaxy   { --ball-color: #0ff; --brick-color: #3498db; --glow: cyan; }
-body.neon     { --ball-color: #fff; --brick-color: #00ffff; --glow: magenta; }
-body.ice      { --ball-color: #eef; --brick-color: #aaf; --glow: lightblue; }
-body.inferno  { --ball-color: #ffcc00; --brick-color: #ff6600; --glow: orange; }
+/* ===== THEMES (DX-BALL COLORS) ===== */
+body.galaxy   { --ball-color: #0ff;    --glow: cyan;    }
+body.neon     { --ball-color: #fff;    --glow: magenta;}
+body.ice      { --ball-color: #eef;    --glow: lightblue;}
+body.inferno  { --ball-color: #ffcc00; --glow: orange; }
