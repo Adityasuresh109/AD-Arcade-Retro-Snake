@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
   <title>AD Arcade: Retro Snake</title>
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -19,7 +19,7 @@
 
     <label for="themeSelect">🎨 Theme:</label>
     <select id="themeSelect">
-      <option value="galaxy">🌌 Galaxy</option>
+      <option value="galaxy" selected>🌌 Galaxy</option>
       <option value="neon">🌟 Neon Grid</option>
       <option value="ice">❄️ Ice Realm</option>
       <option value="inferno">🔥 Inferno</option>
@@ -38,9 +38,9 @@
   <div id="instructionsPanel" class="panel hidden">
     <h2>📖 Instructions</h2>
     <ul class="instructions-list">
-      <li><strong>Controls:</strong> Arrow keys or swipe on mobile</li>
-      <li><strong>Food:</strong> Eat 🍎 to grow!</li>
-      <li><strong>Snake:</strong> 🐍 head + glowing circles body</li>
+      <li><strong>Controls:</strong> Arrow keys or swipe (mobile)</li>
+      <li><strong>Food:</strong> Eat 🍎 to grow</li>
+      <li><strong>Snake:</strong> 🐍 head + smooth body</li>
       <li><strong>Theme:</strong> DX-Ball colors</li>
       <li><strong>Music:</strong> Toggle before play</li>
     </ul>
@@ -55,11 +55,7 @@
   </div>
 
   <!-- 🎮 Game UI -->
-  <h2 id="gameTitle" class="hidden">AD Arcade: Retro Snake</h2>
-  <div id="scoreboard" class="hidden">
-    Score: <span id="score">0</span> |
-    High Score: <span id="highscore">0</span>
-  </div>
+  <div id="scoreboard" class="hidden">Score: <span id="score">0</span> | High Score: <span id="highscore">0</span></div>
 
   <!-- 🕹 Playing Area -->
   <canvas id="gameCanvas" class="hidden"></canvas>
