@@ -7,7 +7,11 @@ body {
   overflow: hidden;
   text-align: center;
 }
-.no-select { user-select: none; -webkit-user-select: none; }
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
 
 /* ===== PANEL STYLING ===== */
 .panel {
@@ -30,15 +34,11 @@ body {
   opacity: 0;
   pointer-events: none;
 }
-
-/* Panel Headers */
 .panel h1, .panel h2 {
   margin: 0 0 12px;
   color: var(--glow);
   text-shadow: 0 0 8px var(--glow);
 }
-
-/* Inputs & Buttons */
 .panel label {
   display: block;
   margin: 8px 0 4px;
@@ -60,7 +60,9 @@ body {
   font-size: 12px;
   box-shadow: 0 0 6px var(--glow);
 }
-.panel button { cursor: pointer; }
+.panel button {
+  cursor: pointer;
+}
 
 /* ===== SCOREBOARD ===== */
 #scoreboard {
@@ -73,7 +75,9 @@ body {
   color: white;
   display: none;
 }
-#scoreboard.visible { display: block; }
+#scoreboard.visible {
+  display: block;
+}
 
 /* ===== CANVAS PLAY AREA ===== */
 #gameCanvas {
