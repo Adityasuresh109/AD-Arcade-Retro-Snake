@@ -1,77 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
-  <title>AD Arcade: Retro Snake</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-  </style>
-</head>
-<body class="galaxy">
-
-  <!-- 🎮 Landing Panel -->
-  <div id="loginScreen" class="panel">
-    <h1><strong>AD Arcade: Retro Snake</strong></h1>
-    <label for="playerName">👤 Name:</label>
-    <input type="text" id="playerName" placeholder="Enter your name" />
-
-    <label for="themeSelect">🎨 Theme:</label>
-    <select id="themeSel">
-      <option value="galaxy" selected>🌌 Galaxy</option>
-      <option value="neon">🌟 Neon Grid</option>
-      <option value="ice">❄️ Ice Realm</option>
-      <option value="inferno" Inferno</option>
-    </select>
-
-    <label>
-      <input type="checkbox" id="musicToggle" checked /> 🎶 Music
-    </label>
-
-    <button id="startGameBt" class="no-select">▶️ Start Game</button>
-    <button id="viewInstructionsBtn" class="no-select">📖 Instructions</button>
-    <button id="viewLeaderboardBtn" class="no-select">🏆 Leaderboard</button>
-  </div>
-
-  <!-- 📖 Instructi Panel -->
-  <div id="instructionsPanel" class="panel hidden">
-    <h2>📖 Instructions</h2>
-    <ul class="instructions-list">
-      <li><strong>Controls:</strong> Arrow keys or swipe (mobile)</li>
-      <li><strong>Food:</strong> Eat 🍎 to grow</li>
-      <li><strong>Snake:</stro> 🐍 head + smooth body<li>
-      <li><strong>Theme:</strong> DX-Ball colors</li>
-      <li><strong>Music:</strong> Toggle before play</li>
-    </ul>
-    <button id="closeInstructionsBtn" class="no-select">❌ Close</button>
-  </div>
-
-  <!-- 🏆 Leaderboard Panel -->
-  <div id="leaderboardPanel" class="panel hidden">
-    <h2>🏆 Top 10 Scores</h2>
-    <ul id="leaderboardList"></ul>
-    <button id="closeLeaderboardBtn" class="no-select">❌ Close</button>
-  </div>
-
-  <!-- 🎮 Scoreboard -->
-  <div id="scoreboard" class="hidden">Score: <span id="score">0</span> | High Score: <s id="highscore">0</span></div>
-
-  <!-- 🕹 Playing Area -->
-  <canvas id="gameCanvas" class="hidden"></canvas>
-
-  <!-- 💀 Game Over Modal -->
-  <div id="gameOverModal" class="panel hidden">
-    <h2>💀 Game Over</h2>
-    <p>Your Score: <span id="finalScore">0</span></p>
-    <button oncliclocation.reload()" class="no-select">🔁 Restart</button>
-  </div>
-
-  <!-- 🎶 Music -->
-  <audio id="bgMusic" loop preload="auto">
-    <source src="background.mp3" type="audio/mp3" />
-  </audio>
-
-  <script srcscript.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#080b1c"><title>AD Arcade — Serpent Shift</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif}*{box-sizing:border-box}body{margin:0;min-height:100dvh;background:radial-gradient(circle at 50% 10%,#20224b,#080b1c 65%);color:#eef4ff;display:flex;justify-content:center;overflow:hidden}button{font:inherit;cursor:pointer;touch-action:manipulation}#app{width:min(100%,560px);height:100dvh;display:flex;flex-direction:column;padding:calc(12px + env(safe-area-inset-top)) 14px calc(12px + env(safe-area-inset-bottom));gap:12px}.top{display:flex;justify-content:space-between;align-items:center}.brand{font-size:11px;letter-spacing:3px;color:#95a5c7}.title{font-weight:900;font-size:clamp(24px,6vw,34px);letter-spacing:-1px}.stats{display:flex;gap:10px}.stat{border:1px solid #343b62;background:#12182f;border-radius:14px;padding:7px 13px;text-align:center;min-width:75px}.stat b{display:block;font-size:19px}.stat small{font-size:9px;letter-spacing:2px;color:#96a4c5}.arena{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}canvas{display:block;width:100%;max-height:100%;aspect-ratio:20/24;border:1px solid #37416d;border-radius:18px;box-shadow:0 0 45px #171c55;touch-action:none;background:#090d1f}.hud{display:flex;align-items:center;justify-content:space-between;gap:8px}.realm{font-weight:800;letter-spacing:1px;font-size:12px}.meter{height:5px;border-radius:9px;background:#273052;overflow:hidden;margin-top:5px;width:130px}.meter>div{height:100%;background:#6ef8f1;transition:width .1s}.actions{display:flex;gap:8px}.btn{border:1px solid #4a5786;border-radius:12px;padding:11px 13px;background:#1c2648;color:white;font-weight:800;font-size:12px}.primary{background:linear-gradient(110deg,#7d4aff,#21bbcb);border:0}.shift{min-width:120px}.shift:disabled{opacity:.4}.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#060a18b8;border-radius:18px;padding:22px}.panel{max-width:340px;text-align:center;background:#10172de8;border:1px solid #47517e;padding:25px;border-radius:20px;box-shadow:0 15px 60px #0008}.panel h2{font-size:30px;margin:0 0 8px}.panel p{line-height:1.6;color:#b4c0da}.panel button{margin:5px}.hidden{display:none!important}.hint{text-align:center;font-size:11px;color:#8e9bb9}.accent{color:#70f8ed}
+</style></head><body><main id="app"><div class="top"><div><div class="brand">AD ARCADE PRESENTS</div><div class="title">SERPENT <span class="accent">SHIFT</span></div></div><div class="stats"><div class="stat"><small>SCORE</small><b id="score">0</b></div><div class="stat"><small>BEST</small><b id="best">0</b></div></div></div><div class="hud"><div><div class="realm" id="realm">◈ NEON REALM</div><div class="meter"><div id="charge" style="width:100%"></div></div></div><div class="actions"><button class="btn" id="pause" aria-label="Pause">Ⅱ</button><button class="btn primary shift" id="shift">SHIFT ↗</button></div></div><div class="arena"><canvas id="board" width="600" height="720" aria-label="Snake game board"></canvas><div class="overlay" id="overlay"><div class="panel"><h2 id="heading">TWO WORLDS.<br>ONE SNAKE.</h2><p id="message">Swipe to steer. Collect energy. Shift realities to dodge walls and chase bigger scores. The same snake exists in both worlds.</p><button class="btn primary" id="play">START RUN →</button></div></div></div><div class="hint">SWIPE / ARROW KEYS TO MOVE · SPACE TO SHIFT · P TO PAUSE</div></main>
+<script>
+(()=>{'use strict';
+const C=20,R=24,canvas=document.querySelector('#board'),ctx=canvas.getContext('2d'),$=id=>document.getElementById(id);
+const palette=[{name:'◈ NEON REALM',bg:'#090f24',grid:'#172448',snake:'#6af8ec',glow:'#16b9cd',wall:'#7b58ff'},{name:'✦ EMBER REALM',bg:'#200e1c',grid:'#3a1b35',snake:'#ffce79',glow:'#ff794f',wall:'#ff477e'}];
+let state='menu',snake=[],dir={x:1,y:0},next={x:1,y:0},realm=0,food=[],walls=[[],[]],score=0,best=0,charge=100,tick=0,last=0,acc=0,particles=[],flash=0,combo=0,lastEat=0,playerMoved=false;
+try{best=Number(localStorage.getItem('adarcade_serpent_best')||0)||0}catch{} $('best').textContent=best;
+const rand=n=>Math.floor(Math.random()*n),eq=(a,b)=>a.x===b.x&&a.y===b.y,contains=(arr,p)=>arr.some(v=>eq(v,p));
+function setup(){snake=[{x:9,y:12},{x:8,y:12},{x:7,y:12}];dir={x:1,y:0};next={...dir};realm=0;score=0;charge=100;tick=0;combo=0;lastEat=0;particles=[];walls=[[],[]];for(let w=0;w<2;w++){for(let i=0;i<16;i++){let p={x:rand(C),y:rand(R)};if(Math.abs(p.x-9)<5&&Math.abs(p.y-12)<5)continue;if(!contains(walls[w],p))walls[w].push(p)}}food=[null,null];spawn(0);spawn(1);state='playing';$('overlay').classList.add('hidden');$('score').textContent='0';updateUI();acc=0;last=performance.now()}
+function occupied(p,w){return contains(snake,p)||contains(walls[w],p)||food.some(f=>f&&eq(f,p))}
+function spawn(w){const spots=[];for(let y=0;y<R;y++)for(let x=0;x<C;x++){let p={x,y};if(!occupied(p,w))spots.push(p)}food[w]=spots.length?spots[rand(spots.length)]:null}
+function updateUI(){$('realm').textContent=palette[realm].name;$('realm').style.color=palette[realm].snake;$('charge').style.width=charge+'%';$('charge').style.background=palette[realm].snake;$('shift').disabled=state!=='playing'||charge<35}
+function end(){state='over';if(score>best){best=score;try{localStorage.setItem('adarcade_serpent_best',String(best))}catch{}}$('best').textContent=best;show('RUN COMPLETE',`You scored ${score}. Every reality is dangerous. Can you beat your best?`,'TRY AGAIN →')}
+function show(title,msg,button){$('heading').textContent=title;$('message').textContent=msg;$('play').textContent=button;$('overlay').classList.remove('hidden');updateUI()}
+function turn(x,y){if(state!=='playing')return;if(x===-dir.x&&y===-dir.y)return;next={x,y};playerMoved=true}
+function shift(){if(state!=='playing'||charge<35)return;const other=1-realm;if(contains(walls[other],snake[0])){charge=Math.min(100,charge+8);flash=1;updateUI();return}realm=other;charge-=35;flash=.9;burst(snake[0],palette[realm].snake,22);updateUI()}
+function burst(p,color,n){for(let i=0;i<n;i++)particles.push({x:p.x+.5,y:p.y+.5,vx:(Math.random()-.5)*9,vy:(Math.random()-.5)*9,life:1,color})}
+function step(){dir=next;const head={x:(snake[0].x+dir.x+C)%C,y:(snake[0].y+dir.y+R)%R};const eat=food[realm]&&eq(head,food[realm]);const body=eat?snake:snake.slice(0,-1);if(contains(walls[realm],head)||contains(body,head)){end();return}snake.unshift(head);if(eat){combo=tick-lastEat<=22?Math.min(5,combo+1):1;lastEat=tick;score+=10*combo;charge=Math.min(100,charge+16);burst(head,palette[realm].snake,15);$('score').textContent=score;food[realm]=null;spawn(realm);if(score>best){best=score;$('best').textContent=best}}else snake.pop();charge=Math.min(100,charge+.22);tick++;updateUI()}
+function rounded(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r)}
+function draw(){const p=palette[realm],s=30;ctx.fillStyle=p.bg;ctx.fillRect(0,0,600,720);ctx.strokeStyle=p.grid;ctx.lineWidth=1;for(let x=0;x<=C;x++){ctx.beginPath();ctx.moveTo(x*s,0);ctx.lineTo(x*s,720);ctx.stroke()}for(let y=0;y<=R;y++){ctx.beginPath();ctx.moveTo(0,y*s);ctx.lineTo(600,y*s);ctx.stroke()}
+ctx.globalAlpha=.12;for(const w of walls[1-realm]){ctx.fillStyle=palette[1-realm].wall;ctx.fillRect(w.x*s+8,w.y*s+8,14,14)}ctx.globalAlpha=1;
+for(const w of walls[realm]){ctx.shadowBlur=14;ctx.shadowColor=p.wall;ctx.fillStyle=p.wall;rounded(w.x*s+3,w.y*s+3,24,24,5);ctx.fill()}ctx.shadowBlur=0;
+for(let k=0;k<2;k++){const f=food[k];if(!f)continue;ctx.globalAlpha=k===realm?1:.18;ctx.shadowColor=palette[k].snake;ctx.shadowBlur=18;ctx.fillStyle=palette[k].snake;ctx.beginPath();ctx.arc((f.x+.5)*s,(f.y+.5)*s,9+Math.sin(performance.now()/180)*2,0,Math.PI*2);ctx.fill()}ctx.globalAlpha=1;ctx.shadowBlur=0;
+snake.forEach((v,i)=>{ctx.fillStyle=i===0?'#fff':p.snake;ctx.shadowColor=p.glow;ctx.shadowBlur=i===0?20:8;rounded(v.x*s+3,v.y*s+3,24,24,i===0?9:7);ctx.fill()});ctx.shadowBlur=0;
+particles=particles.filter(v=>v.life>0);for(const v of particles){ctx.globalAlpha=v.life;ctx.fillStyle=v.color;ctx.fillRect(v.x*s,v.y*s,5,5);v.x+=v.vx/60;v.y+=v.vy/60;v.life-=.025}ctx.globalAlpha=1;if(flash>0){ctx.fillStyle=realm?'#ff668822':'#6ef8f122';ctx.fillRect(0,0,600,720);flash=Math.max(0,flash-.035)}
+}
+function loop(now){let dt=Math.min(50,now-last);last=now;if(state==='playing'){acc+=dt;const speed=Math.max(85,165-Math.floor(score/100)*7);while(acc>=speed&&state==='playing'){step();acc-=speed}}draw();requestAnimationFrame(loop)}
+$('play').onclick=()=>{if(state==='paused'){state='playing';$('overlay').classList.add('hidden');updateUI()}else setup()};
+$('pause').onclick=()=>{if(state==='playing'){state='paused';show('PAUSED','Take your time. Your snake will wait.','RESUME →')}else if(state==='paused'){$('play').click()}};
+$('shift').onclick=shift;
+document.addEventListener('keydown',e=>{const dirs={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],w:[0,-1],s:[0,1],a:[-1,0],d:[1,0]};if(dirs[e.key]){e.preventDefault();turn(...dirs[e.key])}if(e.code==='Space'){e.preventDefault();shift()}if(e.key.toLowerCase()==='p')$('pause').click()});
+let touch=null;canvas.addEventListener('pointerdown',e=>{touch={x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointerup',e=>{if(!touch)return;let dx=e.clientX-touch.x,dy=e.clientY-touch.y;touch=null;if(Math.max(Math.abs(dx),Math.abs(dy))<18)return;if(Math.abs(dx)>Math.abs(dy))turn(Math.sign(dx),0);else turn(0,Math.sign(dy))});document.addEventListener('visibilitychange',()=>{if(document.hidden&&state==='playing')$('pause').click()});requestAnimationFrame(t=>{last=t;requestAnimationFrame(loop)});
+})();
+</script></body></html>
