@@ -1,0 +1,17 @@
+{
+  "name": "AD Arcade: Serpent Shift",
+  "short_name": "Serpent Shift",
+  "description": "Shift between two realities in a neon snake arcade challenge.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#080b1c",
+  "theme_color": "#080b1c",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "appId": "com.adarcade.serpentshift",
+  "appName": "Serpent Shift",
+  "webDir": "reborn",
+  "server": {
+    "androidScheme": "https"
+  },
+  "ios": {
+    "contentInset": "automatic"
+  }
+}
