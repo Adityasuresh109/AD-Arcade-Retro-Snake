@@ -15,6 +15,6 @@ jobs:
       - run: npm test
       - name: Check HTML assets
         run: |
-          test -s reborn/index.html
-          test -s reborn/manifest.webmanifest
-          test -s reborn/icon.svg
+          test -s index.html
+          test -s manifest.webmanifest
+          test -s icon.svg
